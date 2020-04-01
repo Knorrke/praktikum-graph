@@ -11,13 +11,12 @@ public class KNOTEN
      */
     KNOTEN(DATENELEMENT daten)
     {
-        // TODO: Instanzvariable initialisieren
+        this.daten = daten;
     }
 
-    public DATENELEMENT datenLiefern()
+    public DATENELEMENT DatenGeben()
     {
-        //TODO
-        return null;
+        return daten;
     }
 
     public void MarkierungSetzen(boolean set){

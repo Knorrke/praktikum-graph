@@ -9,9 +9,25 @@ public class GRAPH_MATRIX
 
     GRAPH_MATRIX(int maxAnzahlKnoten)
     {
-        // Instanzvariable initialisieren
+        anzahlKnoten = 0;
+        knotenfeld = new KNOTEN[maxAnzahlKnoten];
+        adjazenzmatrix = new int[maxAnzahlKnoten][maxAnzahlKnoten];
 
-        //TODO
+        for(int i=0; i < maxAnzahlKnoten; i++)
+        {
+            for(int j=0; j < maxAnzahlKnoten; j++)
+            {
+                if(j==i)
+                {
+                    adjazenzmatrix[i][j] = 0;
+                }
+                else
+                {
+                    adjazenzmatrix[i][j] = -1;
+                }
+            }
+
+        }
     }
 
     GRAPH_MATRIX(KNOTEN[] initKnotenfeld, int[][] initAdjazenzmatrix){
@@ -21,23 +37,38 @@ public class GRAPH_MATRIX
     } 
 
     public void KnotenHinzufuegen(DATENELEMENT inhalt)
-    {
-        //TODO
+    {   
+        if (anzahlKnoten == knotenfeld.length) {
+            System.err.println("Knoten konnte nicht hinzugefügt werden, da das Knotenfeld voll ist.");
+            return;
+        }
+        knotenfeld[anzahlKnoten] = new KNOTEN(inhalt);
+        // Entfernung zu sich selbst ist 0
+        adjazenzmatrix[anzahlKnoten][anzahlKnoten] = 0;
+        anzahlKnoten++;
     }
 
     public void KanteHinzufuegen(int start, int ziel, int bewertung)
     {
-        //TODO
+        if (start < 0 || ziel < 0 || start >= anzahlKnoten || ziel >=anzahlKnoten) {
+            System.err.println("Kante konnte nicht hinzugefügt werden, da Knoten nicht existiert");
+            return;
+        }
+        adjazenzmatrix[start][ziel] = bewertung;
     }
 
     public void KanteLoeschen(int start, int ziel)
     {
-        //TODO
+        adjazenzmatrix[start][ziel] = -1;
+        adjazenzmatrix[ziel][start] = -1;
     }
 
     public void KnotenLoeschen(int knotenIndex)
     {
-        //TODO
+        if (knotenfeld[knotenIndex] != null){
+            knotenfeld[knotenIndex] = null;
+            anzahlKnoten--;
+        }
     }
 
     public void KnotenAusgeben()
