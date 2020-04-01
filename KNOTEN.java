@@ -19,4 +19,12 @@ public class KNOTEN
         //TODO
         return null;
     }
+
+    public void MarkierungSetzen(boolean set){
+        markierung=set;
+    }
+
+    public boolean MarkierungGeben(){
+        return markierung;
+    }
 }
