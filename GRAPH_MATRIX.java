@@ -12,21 +12,21 @@ public class GRAPH_MATRIX
         anzahlKnoten = 0;
         knotenfeld = new KNOTEN[maxAnzahlKnoten];
         adjazenzmatrix = new int[maxAnzahlKnoten][maxAnzahlKnoten];
-        
+
         for(int i=0; i < maxAnzahlKnoten; i++)
         {
             for(int j=0; j < maxAnzahlKnoten; j++)
             {
-               if(j==i)
-               {
-                   adjazenzmatrix[i][j] = 0;
-               }
-               else
-               {
-                   adjazenzmatrix[i][j] = -1;
-               }
+                if(j==i)
+                {
+                    adjazenzmatrix[i][j] = 0;
+                }
+                else
+                {
+                    adjazenzmatrix[i][j] = -1;
+                }
             }
-            
+
         }
     }
 
@@ -54,17 +54,29 @@ public class GRAPH_MATRIX
             System.err.println("Kante konnte nicht hinzugefügt werden, da Knoten nicht existiert");
             return;
         }
+
+        // ungerichtet, da beide Richtungen in Adjazenzmatrix mit gleicher Gewichtung eingetragen werden
         adjazenzmatrix[start][ziel] = bewertung;
+        adjazenzmatrix[ziel][start] = bewertung;
     }
 
     public void KanteLoeschen(int start, int ziel)
     {
-        //TODO
+        adjazenzmatrix[start][ziel] = -1;
+        adjazenzmatrix[ziel][start] = -1;
     }
 
     public void KnotenLoeschen(int knotenIndex)
     {
-        //TODO
+        int i = anzahlKnoten;
+        if (knotenfeld[knotenIndex] != null){
+            knotenfeld[knotenIndex] = null;
+            anzahlKnoten--;
+        }
+        while (knotenIndex - anzahlKnoten > 0){
+            knotenfeld[knotenIndex] = knotenfeld[knotenIndex-1];
+            knotenIndex++;
+        }
     }
 
     public void KnotenAusgeben()
@@ -93,11 +105,25 @@ public class GRAPH_MATRIX
 
     public void tiefensucheStarten(int startKnotenNr)
     {
-        //TODO
+        for(int i=0; i< anzahlKnoten; i++){
+            knotenfeld[i].MarkierungSetzen(false);
+        }
+        if(startKnotenNr>=0 && startKnotenNr <anzahlKnoten){
+            tiefensucheDurchfuehren(startKnotenNr);
+        }
+        else{
+            System.out.println("Knoten mit dieser Nummer ist nicht vorhanden");
+        }
     }
 
     private void tiefensucheDurchfuehren(int knotenNr)
     {
-        //TODO
+        knotenfeld[knotenNr].MarkierungSetzen(true);
+        System.out.println("Aktuell besucht: "+ knotenfeld[knotenNr].DatenGeben().BezeichnerGeben());
+        for(int i=0; i< anzahlKnoten; i++){
+            if(adjazenzmatrix[knotenNr][i]>0 && !(knotenfeld[i].MarkierungGeben())){
+                tiefensucheDurchfuehren(i);
+            }
+        }
     }
 }

@@ -61,7 +61,7 @@ public class GRAPH_MATRIXTest
 
     @Test
     public void testKantenHinzufuegen(){
-        GRAPH_MATRIX testGraphNeu= new GRAPH_MATRIX(1);
+        GRAPH_MATRIX testGraphNeu= new GRAPH_MATRIX(2);
         ORTSCHAFT testOrt = new ORTSCHAFT("München");
         ORTSCHAFT testOrt2= new ORTSCHAFT("Berlin");
         testGraphNeu.KnotenHinzufuegen(testOrt);
