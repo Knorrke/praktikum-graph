@@ -54,7 +54,10 @@ public class GRAPH_MATRIX
             System.err.println("Kante konnte nicht hinzugefügt werden, da Knoten nicht existiert");
             return;
         }
+        
+        // ungerichtet, da beide Richtungen in Adjazenzmatrix mit gleicher Gewichtung eingetragen werden
         adjazenzmatrix[start][ziel] = bewertung;
+        adjazenzmatrix[ziel][start] = bewertung;
     }
 
     public void KanteLoeschen(int start, int ziel)
