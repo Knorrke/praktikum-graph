@@ -12,16 +12,6 @@ import org.junit.Test;
  */
 public class GRAPH_MATRIXTest
 {
-    KNOTEN[] knotenfeld = {new KNOTEN(new ORTSCHAFT("Altdorf")),new KNOTEN(new ORTSCHAFT("Fischbach")),
-            new KNOTEN(new ORTSCHAFT("Weiler")),new KNOTEN(new ORTSCHAFT("Ziegelstein")),
-            new KNOTEN(new ORTSCHAFT("Burg")),new KNOTEN(new ORTSCHAFT("Neustadt")),new KNOTEN(new ORTSCHAFT("Rain"))}; 
-    int[][] adjazenzmatrix = {  { 0, 20, 15, -1, -1, -1, -1},
-            {10,  0, 10, -1, -1, -1, -1},
-            {-1, 25 , 0,  5, -1, -1, -1},
-            {-1, 15, -1,  0, 20, 15, -1},
-            {-1, 15, -1,  5,  0, -1, -1},
-            {-1, -1, -1, -1, -1,  0, 20},
-            {-1, -1, -1, -1, 25, -1,  0}};
     GRAPH_MATRIX testGraph;
 
     /**
@@ -39,6 +29,16 @@ public class GRAPH_MATRIXTest
     @Before
     public void setUp()
     {
+        KNOTEN[] knotenfeld = {new KNOTEN(new ORTSCHAFT("Altdorf")),new KNOTEN(new ORTSCHAFT("Fischbach")),
+                new KNOTEN(new ORTSCHAFT("Weiler")),new KNOTEN(new ORTSCHAFT("Ziegelstein")),
+                new KNOTEN(new ORTSCHAFT("Burg")),new KNOTEN(new ORTSCHAFT("Neustadt")),new KNOTEN(new ORTSCHAFT("Rain"))}; 
+        int[][] adjazenzmatrix = {  { 0, 20, 15, -1, -1, -1, -1},
+                {10,  0, 10, -1, -1, -1, -1},
+                {-1, 25 , 0,  5, -1, -1, -1},
+                {-1, 15, -1,  0, 20, 15, -1},
+                {-1, 15, -1,  5,  0, -1, -1},
+                {-1, -1, -1, -1, -1,  0, 20},
+                {-1, -1, -1, -1, 25, -1,  0}};
         testGraph= new GRAPH_MATRIX(knotenfeld, adjazenzmatrix);
     }
 

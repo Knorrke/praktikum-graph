@@ -69,12 +69,26 @@ public class GRAPH_MATRIX
 
     public void KnotenAusgeben()
     {
-        //TODO
+        for(int i=0; i<anzahlKnoten; i++) {
+            System.out.printf("[%d]: %s%n", i, knotenfeld[i].DatenGeben().BezeichnerGeben());
+        }
     }
 
     public void MatrixAusgeben()
     {
-        //TODO
+        String ortFormat = " %5.5s";
+        System.out.printf(ortFormat,"");
+        for (int i=0; i<anzahlKnoten; i++) {
+            System.out.printf(ortFormat,knotenfeld[i].DatenGeben().BezeichnerGeben());
+        }
+        System.out.println("");
+        for(int i=0; i<anzahlKnoten; i++) {
+            System.out.printf(ortFormat, knotenfeld[i].DatenGeben().BezeichnerGeben());
+            for (int j=0; j<anzahlKnoten; j++) {
+                System.out.printf("%6d", adjazenzmatrix[i][j]);
+            }
+            System.out.println("");
+        }
     }
 
     public void tiefensucheStarten(int startKnotenNr)
