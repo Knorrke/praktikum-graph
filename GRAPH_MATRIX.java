@@ -99,7 +99,7 @@ public class GRAPH_MATRIX
         knotenfeld[knotenNr].MarkierungSetzen(true);
         System.out.println("Aktuell besucht: "+ knotenfeld[knotenNr].DatenGeben().BezeichnerGeben());
         for(int i=0; i< anzahlKnoten; i++){
-            if(adjazenzmatrix[knotenNr][i]>0 && knotenfeld[knotenNr].MarkierungGeben()){
+            if(adjazenzmatrix[knotenNr][i]>0 && !knotenfeld[knotenNr].MarkierungGeben()){
                 tiefensucheDurchfuehren(i);
             }
         }
