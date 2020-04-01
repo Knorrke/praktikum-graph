@@ -21,13 +21,24 @@ public class GRAPH_MATRIX
     } 
 
     public void KnotenHinzufuegen(DATENELEMENT inhalt)
-    {
-        //TODO
+    {   
+        if (anzahlKnoten == knotenfeld.length) {
+            System.err.println("Knoten konnte nicht hinzugefügt werden, da das Knotenfeld voll ist.");
+            return;
+        }
+        knotenfeld[anzahlKnoten] = new KNOTEN(inhalt);
+        // Entfernung zu sich selbst ist 0
+        adjazenzmatrix[anzahlKnoten][anzahlKnoten] = 0;
+        anzahlKnoten++;
     }
 
     public void KanteHinzufuegen(int start, int ziel, int bewertung)
     {
-        //TODO
+        if (start < 0 || ziel < 0 || start >= anzahlKnoten || ziel >=anzahlKnoten) {
+            System.err.println("Kante konnte nicht hinzugefügt werden, da Knoten nicht existiert");
+            return;
+        }
+        adjazenzmatrix[start][ziel] = bewertung;
     }
 
     public void KanteLoeschen(int start, int ziel)
