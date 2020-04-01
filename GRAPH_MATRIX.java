@@ -9,7 +9,7 @@ public class GRAPH_MATRIX
 
     GRAPH_MATRIX(int maxAnzahlKnoten)
     {
-        anzahlKnoten = maxAnzahlKnoten;
+        anzahlKnoten = 0;
         knotenfeld = new KNOTEN[maxAnzahlKnoten];
         adjazenzmatrix = new int[maxAnzahlKnoten][maxAnzahlKnoten];
 
