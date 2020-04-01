@@ -65,9 +65,14 @@ public class GRAPH_MATRIX
 
     public void KnotenLoeschen(int knotenIndex)
     {
+        int i = anzahlKnoten;
         if (knotenfeld[knotenIndex] != null){
             knotenfeld[knotenIndex] = null;
             anzahlKnoten--;
+        }
+        while (knotenIndex - anzahlKnoten > 0){
+            knotenfeld[knotenIndex] = knotenfeld[knotenIndex-1];
+            knotenIndex++;
         }
     }
 
