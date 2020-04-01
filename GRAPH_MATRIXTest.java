@@ -49,6 +49,29 @@ public class GRAPH_MATRIXTest
         System.out.println("______________");
     }
 
+    @Test
+    public void testKnotenHinzufuegen(){
+        GRAPH_MATRIX testGraphNeu= new GRAPH_MATRIX(1);
+        ORTSCHAFT testOrt = new ORTSCHAFT("München");
+        testGraphNeu.KnotenHinzufuegen(testOrt);
+        System.out.println("Knoten hinzufügen");
+        testGraphNeu.KnotenAusgeben();
+        System.out.println("_______________");
+    }
+
+    @Test
+    public void testKantenHinzufuegen(){
+        GRAPH_MATRIX testGraphNeu= new GRAPH_MATRIX(1);
+        ORTSCHAFT testOrt = new ORTSCHAFT("München");
+        ORTSCHAFT testOrt2= new ORTSCHAFT("Berlin");
+        testGraphNeu.KnotenHinzufuegen(testOrt);
+        testGraphNeu.KnotenHinzufuegen(testOrt2);
+        testGraphNeu.KanteHinzufuegen(0 , 1, 15);
+        System.out.println("Kante hinzufügen");
+        testGraphNeu.MatrixAusgeben();
+        System.out.println("_______________");
+    }
+
     @After
     public void tearDown()
     {
