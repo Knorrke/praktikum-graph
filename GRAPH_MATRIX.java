@@ -54,7 +54,7 @@ public class GRAPH_MATRIX
             System.err.println("Kante konnte nicht hinzugefügt werden, da Knoten nicht existiert");
             return;
         }
-        
+
         // ungerichtet, da beide Richtungen in Adjazenzmatrix mit gleicher Gewichtung eingetragen werden
         adjazenzmatrix[start][ziel] = bewertung;
         adjazenzmatrix[ziel][start] = bewertung;
@@ -107,7 +107,7 @@ public class GRAPH_MATRIX
         knotenfeld[knotenNr].MarkierungSetzen(true);
         System.out.println("Aktuell besucht: "+ knotenfeld[knotenNr].DatenGeben().BezeichnerGeben());
         for(int i=0; i< anzahlKnoten; i++){
-            if(adjazenzmatrix[knotenNr][i]>0 && !knotenfeld[knotenNr].MarkierungGeben()){
+            if(adjazenzmatrix[knotenNr][i]>0 && !(knotenfeld[i].MarkierungGeben())){
                 tiefensucheDurchfuehren(i);
             }
         }
