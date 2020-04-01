@@ -9,9 +9,25 @@ public class GRAPH_MATRIX
 
     GRAPH_MATRIX(int maxAnzahlKnoten)
     {
-        // Instanzvariable initialisieren
-
-        //TODO
+        anzahlKnoten = maxAnzahlKnoten;
+        knotenfeld = new KNOTEN[maxAnzahlKnoten];
+        adjazenzmatrix = new int[maxAnzahlKnoten][maxAnzahlKnoten];
+        
+        for(int i=0; i < maxAnzahlKnoten; i++)
+        {
+            for(int j=0; j < maxAnzahlKnoten; j++)
+            {
+               if(j==i)
+               {
+                   adjazenzmatrix[i][j] = 0;
+               }
+               else
+               {
+                   adjazenzmatrix[i][j] = -1;
+               }
+            }
+            
+        }
     }
 
     GRAPH_MATRIX(KNOTEN[] initKnotenfeld, int[][] initAdjazenzmatrix){
