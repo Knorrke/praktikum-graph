@@ -18,4 +18,12 @@ public class KNOTEN
     {
         return daten;
     }
+
+    public void MarkierungSetzen(boolean set){
+        markierung=set;
+    }
+
+    public boolean MarkierungGeben(){
+        return markierung;
+    }
 }

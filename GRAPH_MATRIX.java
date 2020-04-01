@@ -91,11 +91,25 @@ public class GRAPH_MATRIX
 
     public void tiefensucheStarten(int startKnotenNr)
     {
-        //TODO
+        for(int i=0; i< anzahlKnoten; i++){
+            knotenfeld[i].MarkierungSetzen(false);
+        }
+        if(startKnotenNr>=0 && startKnotenNr <anzahlKnoten){
+            tiefensucheDurchfuehren(startKnotenNr);
+        }
+        else{
+            System.out.println("Knoten mit dieser Nummer ist nicht vorhanden");
+        }
     }
 
     private void tiefensucheDurchfuehren(int knotenNr)
     {
-        //TODO
+        knotenfeld[knotenNr].MarkierungSetzen(true);
+        System.out.println("Aktuell besucht: "+ knotenfeld[knotenNr].DatenGeben().BezeichnerGeben());
+        for(int i=0; i< anzahlKnoten; i++){
+            if(adjazenzmatrix[knotenNr][i]>0 && !knotenfeld[knotenNr].MarkierungGeben()){
+                tiefensucheDurchfuehren(i);
+            }
+        }
     }
 }
