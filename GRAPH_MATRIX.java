@@ -12,21 +12,21 @@ public class GRAPH_MATRIX
         anzahlKnoten = maxAnzahlKnoten;
         knotenfeld = new KNOTEN[maxAnzahlKnoten];
         adjazenzmatrix = new int[maxAnzahlKnoten][maxAnzahlKnoten];
-        
+
         for(int i=0; i < maxAnzahlKnoten; i++)
         {
             for(int j=0; j < maxAnzahlKnoten; j++)
             {
-               if(j==i)
-               {
-                   adjazenzmatrix[i][j] = 0;
-               }
-               else
-               {
-                   adjazenzmatrix[i][j] = -1;
-               }
+                if(j==i)
+                {
+                    adjazenzmatrix[i][j] = 0;
+                }
+                else
+                {
+                    adjazenzmatrix[i][j] = -1;
+                }
             }
-            
+
         }
     }
 
@@ -59,12 +59,16 @@ public class GRAPH_MATRIX
 
     public void KanteLoeschen(int start, int ziel)
     {
-        int i = adjazenzmatrix.length;
+        adjazenzmatrix[start][ziel] = -1;
+        adjazenzmatrix[ziel][start] = -1;
     }
 
     public void KnotenLoeschen(int knotenIndex)
     {
-        
+        if (knotenfeld[knotenIndex] != null){
+            knotenfeld[knotenIndex] = null;
+            anzahlKnoten--;
+        }
     }
 
     public void KnotenAusgeben()
