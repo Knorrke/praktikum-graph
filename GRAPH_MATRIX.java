@@ -32,12 +32,12 @@ public class GRAPH_MATRIX
 
     public void KanteLoeschen(int start, int ziel)
     {
-        //TODO
+        int i = adjazenzmatrix.length;
     }
 
     public void KnotenLoeschen(int knotenIndex)
     {
-        //TODO
+        
     }
 
     public void KnotenAusgeben()
